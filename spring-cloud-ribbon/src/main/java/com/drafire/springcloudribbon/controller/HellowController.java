@@ -12,7 +12,7 @@ public class HellowController {
     HellowService helloService;
 
     @RequestMapping(value = "/hellow")
-    public String hi(@RequestParam String name) {
+    public String hi(@RequestParam String name) throws InterruptedException {
         return helloService.hello(name);
     }
 }
