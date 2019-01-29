@@ -23,7 +23,7 @@ public class HellowService {
         int num = new Random().nextInt(6000);
         System.err.println("time sleep :"+num+" seconds");
         TimeUnit.MILLISECONDS.sleep(num);
-        return restTemplate.getForObject("http://EUREKA-CLIENT/hellow?name=" + name, String.class);
+        return restTemplate.getForObject("http://eureka-client/hello?name=" + name, String.class);
     }
 
     //这个熔断的方法，必须和上面的hello 方法一直

@@ -12,7 +12,7 @@ public class HelloController {
     private HelloService service;
 
     @GetMapping("/hello")
-    public String hello(@RequestParam String name) {
+    public String hello(@RequestParam String name) {   //一定要指定这个@RequestParam ，否则可能会有一些意想不到的问题
         return service.hello(name);
     }
 }
