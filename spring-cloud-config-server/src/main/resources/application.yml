@@ -1,0 +1,24 @@
+server:
+  port: 9501    #这里设定configServer 没用，因为优先级不够高，需要到bootstrap.yml 设置
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/drafire/config
+          password:
+          username:
+      name: config-server-1
+      label: master
+
+eureka:
+  instance:
+    hostname: localhost
+    serverPort1: 9001
+    serverPort2: 9002
+  client:
+    serviceUrl:
+      #这神奇的defaultZone，注意，集群模式下 ，这个,是要紧跟eureka后面的
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverPort1}/eureka, http://${eureka.instance.hostname}:${eureka.instance.serverPort2}/eureka
