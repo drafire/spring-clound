@@ -1,0 +1,16 @@
+server:
+  port: 9601
+spring:
+  application:
+    name: sleuth
+
+
+eureka:
+  instance:
+    hostname: localhost
+    serverPort1: 9001
+    serverPort2: 9002
+  client:
+    serviceUrl:
+      #这神奇的defaultZone，注意，集群模式下 ，这个,是要紧跟eureka后面的
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.serverPort1}/eureka, http://${eureka.instance.hostname}:${eureka.instance.serverPort2}/eureka
